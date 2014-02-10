@@ -20,15 +20,27 @@ Code-Tracker is currently using [Django](https://www.djangoproject.com/) and MyS
   * Change backup settings based on file size
 
 ###Pre-requisites 
+####Packages:
 On Fedora/RHEL/CentOS machines:
 ```bash
 sudo yum install python-django python-devel python-pip mysql-devel mysql-server
 ```
 On Ubuntu/Debian machines:
 ```
-sudo apt-get install python-django python-pip 
+sudo apt-get install python-django python-pip mysql-client mysql-server
 ```
-Then install the Mysql hook for python (all platforms):
+####Python lib:
+Install the Mysql hook for python (all platforms):
 ```bash
 sudo pip install MySQL-python
 ```
+####Setup MySQL*
+```mysql
+mysql> create database codetracker;
+
+mysql> grant all privileges on codetracker.* to 'django'@'localhost' identified by 'password';
+
+mysql> exit;
+```
+*When you change the database/username/password, be sure to update the settings.py file with the correct information
+
