@@ -24,6 +24,11 @@ On Fedora/RHEL/CentOS machines:
 ```bash
 sudo yum install python-django python-devel python-pip mysql-devel mysql-server
 ```
+On Ubuntu/Debian machines:
+```
+sudo apt-get install python-django python-pip 
+```
+Then install the Mysql hook for python (all platforms):
 ```bash
 sudo pip install MySQL-python
 ```
