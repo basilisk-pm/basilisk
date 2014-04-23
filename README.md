@@ -29,7 +29,7 @@ On Ubuntu/Debian machines:
 ```
 sudo apt-get install python-django python-pip mysql-client mysql-server
 ```
-####Python lib:
+####Python Mysql library:
 Install the Mysql hook for python (all platforms):
 ```bash
 sudo pip install MySQL-python
