@@ -1,7 +1,7 @@
 Code-Tracker
 ============
 An open source code management and bug tracking solution. 
-Code-Tracker is currently using [Django](https://www.djangoproject.com/) and MySQL for the backend and is themed with [Bootstrap](http://getbootstrap.com/). It will support all common versioning systems as well as be public or private facing. It will have fine grained user control, backup settings, custom styling, etc.
+Code-Tracker is currently using [Django](https://www.djangoproject.com/) and MySQL for the backend and is themed with [Bootstrap](http://getbootstrap.com/) provided by [django-bootstrap3](https://github.com/dyve/django-bootstrap3). It will support all common versioning systems as well as be public or private facing. It will have fine grained user control, backup settings, custom styling, etc.
 
 ###Goals
 1. Easy to use code viewer
@@ -29,11 +29,16 @@ On Ubuntu/Debian machines:
 ```
 sudo apt-get install python-django python-pip mysql-client mysql-server
 ```
-####Python Mysql library:
+####Python MySQL library:
 Install the Mysql hook for python (all platforms):
 ```bash
 sudo pip install MySQL-python
 ```
+####Install bootstrap for django:
+```bash
+sudo pip install django-bootstrap3
+```
+
 ####Setup MySQL*
 ```mysql
 mysql> create database codetracker;
