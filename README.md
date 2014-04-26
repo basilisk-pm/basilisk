@@ -27,10 +27,11 @@ sudo yum install python-django python-devel python-pip mysql-devel mysql-server
 ```
 On Ubuntu/Debian machines:
 ```
-sudo apt-get install python-django python-pip mysql-client mysql-server
+sudo apt-get install python-django python-pip mysql-client mysql-server python-mysqldb
+
 ```
-####Python MySQL library:
-Install the Mysql hook for python (all platforms):
+####Python MySQL library (On Fedora/RHEL/CentOS):
+Install the Mysql hook for python:
 ```bash
 sudo pip install MySQL-python
 ```
