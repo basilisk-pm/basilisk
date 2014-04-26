@@ -1,0 +1,9 @@
+{% if repo_list %}
+    <ul>
+    {% for repo in repo_list %}
+        <li><a href="/code_viewer/{{ repo.repo_url }}/">{{ repo.repo_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No repos are available.</p>
+{% endif %}
