@@ -1,0 +1,11 @@
+.navbar-white {
+  background-color: #616161;
+  background-image: -moz-linear-gradient(top, #616161, #616161);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#616161), to(#616161));
+  /* background-image: -webkit-linear-gradient(top, #222222, #111111); */
+  background-image: -o-linear-gradient(top, #616161, #616161);
+  /* background-image: linear-gradient(to bottom, #222222, #111111); */
+  /* background-repeat: repeat-x; */
+  border-color: #252525;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#616161', endColorstr='#616161', GradientType=0);
+}
