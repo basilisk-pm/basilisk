@@ -13,6 +13,9 @@
     color: #FFFFFF;
 }
 
+.navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
+    background-color: #494949;
+}
 .shiftleft { margin-left: 5px; }
 
 .voffset  { margin-top: 2px; }
