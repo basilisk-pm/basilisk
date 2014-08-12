@@ -16,7 +16,7 @@ Code-Tracker is currently using [Django](https://www.djangoproject.com/) with Po
   * Comprehensive comparison utlities - diff, unit test, etc
 3. Easily store and keep track of media files
   * Keep a user specified number of backups of files
-  * Easily store and retrieve media files
+  * Easily store and retrieve media files, including support for Amason S3
   * Change backup settings based on file size
 
 ###Pre-requisites 
