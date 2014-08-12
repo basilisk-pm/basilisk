@@ -1,7 +1,7 @@
-Code-Tracker
+Basilisk
 ============
 An open source code management and bug tracking solution.  Still in initial development.    
-Code-Tracker is currently using [Django](https://www.djangoproject.com/) with Postgres for the backend. It is themed with [Bootstrap](http://getbootstrap.com/) provided by [django-bootstrap3](https://github.com/dyve/django-bootstrap3). Git and SVN support is done via [GitPython](https://gitorious.org/git-python/) and [PySVN](http://pysvn.tigris.org/docs/pysvn_prog_guide.html) respectively. It will support all common versioning systems as well as be public or private facing. It will have fine grained user control, backup settings, custom styling, etc.
+Basilisk is currently using [Django](https://www.djangoproject.com/) with Postgres for the backend. It is themed with [Bootstrap](http://getbootstrap.com/) provided by [django-bootstrap3](https://github.com/dyve/django-bootstrap3). Git and SVN support is done via [GitPython](https://gitorious.org/git-python/) and [PySVN](http://pysvn.tigris.org/docs/pysvn_prog_guide.html) respectively. It will support all common versioning systems as well as be public or private facing. It will have fine grained user control, backup settings, custom styling, etc.
 
 ###Goals
 1. Easy to use code viewer
@@ -19,15 +19,4 @@ Code-Tracker is currently using [Django](https://www.djangoproject.com/) with Po
   * Easily store and retrieve media files, including support for Amazon S3
   * Change backup settings based on file size
 
-###Pre-requisites 
-####Packages:
-On Fedora/RHEL/CentOS machines:
-```bash
-sudo yum install python-django python-devel python-pip 
-```
-On Ubuntu/Debian machines:
-```
-sudo apt-get install python-django python-pip 
-
-```
 
