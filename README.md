@@ -1,7 +1,7 @@
 Code-Tracker
 ============
 An open source code management and bug tracking solution.  Still in initial development.    
-Code-Tracker is currently using [Django](https://www.djangoproject.com/) and MySQL for the backend and is themed with [Bootstrap](http://getbootstrap.com/) provided by [django-bootstrap3](https://github.com/dyve/django-bootstrap3). Git and SVN support is done via [GitPython](https://gitorious.org/git-python/) and [PySVN](http://pysvn.tigris.org/docs/pysvn_prog_guide.html) respectively. It will support all common versioning systems as well as be public or private facing. It will have fine grained user control, backup settings, custom styling, etc.
+Code-Tracker is currently using [Django](https://www.djangoproject.com/) with Postgres for the backend. It is themed with [Bootstrap](http://getbootstrap.com/) provided by [django-bootstrap3](https://github.com/dyve/django-bootstrap3). Git and SVN support is done via [GitPython](https://gitorious.org/git-python/) and [PySVN](http://pysvn.tigris.org/docs/pysvn_prog_guide.html) respectively. It will support all common versioning systems as well as be public or private facing. It will have fine grained user control, backup settings, custom styling, etc.
 
 ###Goals
 1. Easy to use code viewer
@@ -23,30 +23,11 @@ Code-Tracker is currently using [Django](https://www.djangoproject.com/) and MyS
 ####Packages:
 On Fedora/RHEL/CentOS machines:
 ```bash
-sudo yum install python-django python-devel python-pip mysql-devel mysql-server
+sudo yum install python-django python-devel python-pip 
 ```
 On Ubuntu/Debian machines:
 ```
-sudo apt-get install python-django python-pip mysql-client mysql-server python-mysqldb
+sudo apt-get install python-django python-pip 
 
 ```
-####Python MySQL library (On Fedora/RHEL/CentOS):
-Install the Mysql hook for python:
-```bash
-sudo pip install MySQL-python
-```
-####Install bootstrap for django:
-```bash
-sudo pip install django-bootstrap3
-```
-
-####Setup MySQL*
-```mysql
-mysql> create database codetracker;
-
-mysql> grant all privileges on codetracker.* to 'django'@'localhost' identified by 'password';
-
-mysql> exit;
-```
-*When you change the database/username/password, be sure to update the settings.py file with the correct information
 
