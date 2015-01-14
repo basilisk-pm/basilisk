@@ -1,6 +1,6 @@
 Basilisk
 ============
-[![Build Status](https://travis-ci.org/basiIisk/basilisk.svg?branch=master)](https://travis-ci.org/basiIisk/basilisk)
+[![Build Status](https://travis-ci.org/basilisk-pm/basilisk.svg?branch=master)](https://travis-ci.org/basilisk-pm/basilisk)
 [![Build Status](https://readthedocs.org/projects/basilisk-django/badge/?version=latest)](https://readthedocs.org/projects/basilisk-django/)
 ![Release](http://img.shields.io/badge/release-dev-green.svg)
 
