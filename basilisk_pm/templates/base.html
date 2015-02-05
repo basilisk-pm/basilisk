@@ -9,7 +9,7 @@
 
     <style>
       body {
-        padding-top: 120px; /* 60px to make the container go all the way to the bottom of the topbar */
+        padding-top: 40px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
 
@@ -24,12 +24,14 @@
     <link href="{{ STATIC_URL }}custom.css" rel="stylesheet">
   </head>
 
-  <body>
-      {% include "navbar.html" %}
 
+  <body>
+    {% include "navbar.html" %}  
+    {% block body %}
     <div class="container">
       {% block container %}{% endblock %}
     </div> <!-- /container -->
-
+    {% endblock %}
   </body>
+  
 </html>
