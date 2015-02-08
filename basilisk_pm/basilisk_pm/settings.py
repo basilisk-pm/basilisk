@@ -134,3 +134,5 @@ TEMPLATE_CONTEXT_PROCESSORS = (
         "django.core.context_processors.static",
 )
 
+
+LOGIN_URL = '/profiles/login/'
