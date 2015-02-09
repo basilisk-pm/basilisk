@@ -4,6 +4,15 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.template import RequestContext, loader
+
+
+
+@login_required
+def index(request):
+    template = loader.get_template('base.html')
+    context = RequestContext(request, {})
+    return HttpResponse(template.render(context))
 
 def register(request):
 
