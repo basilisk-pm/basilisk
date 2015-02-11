@@ -7,10 +7,12 @@
               <div class="nav-collapse collapse">
 		<ul class="nav">
 		  <li><a href="/projects">Home</a></li>
-		  <li><a href="#about">Files</a></li>
-		  <li><a href="#contact">Commits</a></li>
+		  <li><a href="/projects/files">Files</a></li>
+		  <li><a href="/projects/code">Code</a></li>
 		  <li><a href="/bugs">Issues</a></li>
-		  <li><a href="#contact">Settings</a></li>
+		  {% if request.user.is_superuser %}
+		  <li><a href="/projects/settings">Settings</a></li>
+		  {% endif %}
 		</ul>
 	      </div>
 	  </div>

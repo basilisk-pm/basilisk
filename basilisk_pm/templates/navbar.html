@@ -13,12 +13,13 @@
 	  {% endif %}
           <div class="span4 nav-collapse collapse">
             <ul class="nav">
+      	  {% if user.is_authenticated %}
               <li><a href="#">Snippets</a></li>
               <li><a href="#about">Settings</a></li>
-	      {% if user.is_authenticated %}
-                <li><a href="/profiles/logout">Logout</a></li>
+              <li><a href="/profiles/logout">Logout</a></li>
               {% else %}
-                <li><a href="/profiles/login">Login</a></li>
+                <li><a href="/profiles/register">Register</a></li>
+	        <li><a href="/profiles/login">Login</a></li>
 	      {% endif %}
             </ul>
           </div><!--/.nav-collapse -->
