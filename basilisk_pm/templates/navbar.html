@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
           </button>
 	  {% if user.is_authenticated %}
-          <a class="brand" href="#">{{ user.username }}</a>
+          <a class="brand" href="/profiles">{{ user.username }}</a>
 	  {% else %}
 	  <a class="brand" href="#">Basilisk</a>
 	  {% endif %}
