@@ -10,7 +10,7 @@ from django.template import RequestContext, loader
 
 @login_required
 def index(request):
-    template = loader.get_template('base.html')
+    template = loader.get_template('profiles.html')
     context = RequestContext(request, {})
     return HttpResponse(template.render(context))
 
