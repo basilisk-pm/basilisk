@@ -118,3 +118,8 @@ def user_logout(request):
 
     # Take the user back to the homepage.
     return HttpResponseRedirect('/')
+#adding stuffs for editing your profile
+def user_edit(request):
+    template = loader.get_template('profiles-edit.html')
+    context = RequestContext(request, {})
+    return HttpResponse(template.render(context))

@@ -1,0 +1,17 @@
+{% extends "profiles-base.html" %}
+
+
+{% block container %}
+
+
+<div class="container voffset8">
+  <h3>{{ user.username }}</h3>
+  <form id="profile_form" method="post" action="/profiles/edit/">
+    {% csrf_token %}
+    fullname: <input type="text" name="fullname" value="" size="50" />
+    <br />
+    <input type="submit" value="update" />
+  </form>
+</div>
+
+{% endblock %}
