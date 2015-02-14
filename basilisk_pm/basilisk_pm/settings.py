@@ -59,7 +59,6 @@ INSTALLED_APPS = (
     'projects',
     'profiles',
     'bugs',
-    'versioncontrol',
 )
 
 MIDDLEWARE_CLASSES = (
