@@ -5,13 +5,14 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.template import RequestContext, loader
-
-
+from profiles.models import UserProfile
+from django.contrib.auth.models import User
 
 @login_required
 def index(request):
     template = loader.get_template('profiles.html')
     context = RequestContext(request, {})
+    context['userpicture'] = UserProfile.objects.get(user=User.objects.get(username=request.user.username)).picture
     return HttpResponse(template.render(context))
 
 def register(request):
