@@ -57,11 +57,13 @@
     min-height: 28px;
     padding-top: 5px;
     padding-left: 20px;
+    padding-right: 20px;
 }
 
 .filePreviewText{
     padding-top: 5px;
     padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 20px;
     background-color: #e6e6e6;
 }
