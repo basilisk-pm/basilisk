@@ -3,5 +3,36 @@
 {% block container %}
 <div class="container voffset8">
 <h3>Project Files</h3>
+<table class="table table-striped">
+	<thead>
+	  <tr>
+	    <th>
+	      Name
+	    </th>
+	    <th>Last Update</th>
+	  </tr>
+	</thead>
+	  <tr>
+	    <td>
+	      <img alt="File" height="16" src="{{ STATIC_URL }}img/text16.png">
+	      FileA.txt
+	    </td>
+	    <td>A day ago</td>
+	  </tr>
+	  <tr>
+	    <td>
+	      <img alt="File" height="16" src="{{ STATIC_URL }}img/text16.png">
+	      FileB.pdf
+	    </td>
+	    <td>A day ago</td>
+	  </tr>
+	  <tr>
+	    <td>
+	      <img alt="File" height="16" src="{{ STATIC_URL }}img/text16.png">
+	      FileC.docx
+	    </td>
+	    <td>A day ago</td>
+	  </tr>
+      </table>
 </div>
 {% endblock %}
