@@ -3,5 +3,50 @@
 {% block container %}
 <div class="container voffset8">
 <h3>Project Code</h3>
+<table class="table table-striped">
+	<thead>
+	  <tr>
+	    <th>
+	      Name
+	    </th>
+	    <th>Last Update</th>
+	    <th>Commit Message </th>
+	  </tr>
+	</thead>
+	  <tr>
+	    <td>
+	      <img alt="Directory" height="16" src="{{ STATIC_URL }}img/folder16.png">
+	      Folder 
+	    </td>
+	    <td>A day ago</td>
+	    <td>Test Commit</td>
+	  </tr>
+	  <tr>
+	    <td>
+	      <img alt="File" height="16" src="{{ STATIC_URL }}img/text16.png">
+	      README.md 
+	    </td>
+	    <td>A day ago</td>
+	    <td>Test Commit</td>
+	  </tr>
+	  <tr>
+	    <td>
+	      <img alt="File" height="16" src="{{ STATIC_URL }}img/text16.png">
+	      Code.java
+	    </td>
+	    <td>A day ago</td>
+	    <td>Test Commit</td>
+	  </tr>
+      </table>
+
+      <div class="filePreviewBox">
+	<div class="filePreviewHeader">
+	  <b>README.md</b>
+	</div>
+	<div class="filePreviewText">
+          <h2>Test Project </h2>
+	  <p>Test project description</p>
+	</div>
+      </div>
 </div>
 {% endblock %}
