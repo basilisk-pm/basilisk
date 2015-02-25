@@ -75,7 +75,7 @@
     border-radius: 10px 10px 10px 10px; /* future proofing */
     -khtml-border-radius: 10px 10px 10px 10px; /* for old Konqueror browsers */
 
-    background-color: #b8b8b8;
+    background-color: #616161;
     min-height: 34px;
     max-height: 34px;
     padding-top: 5px;
@@ -86,6 +86,7 @@
 
 .bugHeader > .span4 > a {
     margin-right: 20px;
+    color: #378AB5;
 }
 
 .bugSearch {
