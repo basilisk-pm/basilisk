@@ -3,8 +3,20 @@
 {% block container %}
 <div class="container voffset8">
 <h3>Project Bugs</h3>
-
-<table class="table table-striped">
+<div class="bugHeader">
+  <div class="span4 voffset1">
+    <a href="/bugs"><b>Overview</b></a>
+    <a href="/projects/#"><b>New Issue</b></a>
+    <a href="/projects/#"><b>All Issues</b></a>
+  </div>
+  <div class="span4 offset3">
+    <form class="bugSearch ">
+      <input type="text" class="search-query" placeholder="Search Issues">
+      <img height="16" src="{{ STATIC_URL }}img/search16.png">
+    </form>
+  </div>
+</div>
+<table class="table table-striped voffset2">
   <thead>
     <tr>
       <th>

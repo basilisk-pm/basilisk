@@ -67,3 +67,28 @@
     padding-bottom: 20px;
     background-color: #e6e6e6;
 }
+
+
+.bugHeader {
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px; /* future proofing */
+    -khtml-border-radius: 10px 10px 10px 10px; /* for old Konqueror browsers */
+
+    background-color: #b8b8b8;
+    min-height: 34px;
+    max-height: 34px;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.bugHeader > .span4 > a {
+    margin-right: 20px;
+}
+
+.bugSearch {
+    float: right;
+    padding-right: 20px;
+}
