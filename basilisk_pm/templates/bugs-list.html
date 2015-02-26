@@ -1,0 +1,42 @@
+{% extends "project-base.html" %}
+
+{% block container %}
+<div class="container voffset8">
+<h3>Project Bugs</h3>
+{% include "bug-header.html" %}
+
+<br>
+<h4>All Issues</h4>
+<table class="table table-striped voffset2">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Bug Name</th>
+      <th>Last Update</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>1</td>
+    <td>
+      Broken Link 
+    </td>
+    <td>1 hour ago</td>  
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+      Authentication problem? 
+    </td>
+    <td>3 days ago</td>
+  </tr>
+  <tr>
+    <td>3</td>
+   <td> Splash page </td>
+    <td>2 years ago</td>
+  </tr>
+</table>
+
+</div>
+
+</div>
+{% endblock %}

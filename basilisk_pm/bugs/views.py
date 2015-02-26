@@ -9,3 +9,15 @@ def index(request):
     template = loader.get_template('bugs.html')
     context = RequestContext(request, {})
     return HttpResponse(template.render(context))
+
+@login_required
+def new_issue(request):
+    template = loader.get_template('bugs-new.html')
+    context = RequestContext(request, {})
+    return HttpResponse(template.render(context))
+
+@login_required
+def all_issues(request):
+    template = loader.get_template('bugs-list.html')
+    context = RequestContext(request, {})
+    return HttpResponse(template.render(context))
