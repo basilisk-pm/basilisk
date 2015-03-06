@@ -6,12 +6,12 @@
           <div class="container">
               <div class="nav-collapse collapse">
 		<ul class="nav">
-		  <li><a href="/projects">Home</a></li>
-		  <li><a href="/projects/files">Files</a></li>
-		  <li><a href="/projects/code">Code</a></li>
-		  <li><a href="/bugs">Issues</a></li>
+		  <li><a href="/projects/{{ project.id }}">Home</a></li>
+		  <li><a href="/projects/{{ project.id }}/files">Files</a></li>
+		  <li><a href="/projects/{{ project.id }}/code">Code</a></li>
+		  <li><a href="/bugs/{{ project.id }}">Issues</a></li>
 		  {% if request.user.is_superuser %}
-		  <li><a href="/projects/settings">Settings</a></li>
+		  <li><a href="/projects/{{ project.id }}/settings">Settings</a></li>
 		  {% endif %}
 		</ul>
 	      </div>
