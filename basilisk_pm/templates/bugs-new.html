@@ -7,6 +7,11 @@
 
 <br>
 <h4>New Issue</h4>
+<form action="/bugs/{{ project.id }}/new-issue/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ bug_form.as_p }}
+    <input type="submit" value="Submit" />
+</form>
 
 </div>
 
