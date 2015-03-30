@@ -7,4 +7,5 @@ urlpatterns = patterns('',
     url(r'^(?P<project_id>\d+)/code/$', views.code, name='code'),
     url(r'^(?P<project_id>\d+)/files/$', views.files, name='files'),
     url(r'^(?P<project_id>\d+)/settings/$', views.settings, name='settings'),
+    url(r'^new-project/$', views.new_project, name='new-project'),
 )
