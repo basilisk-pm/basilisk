@@ -61,6 +61,7 @@ def new_project(request):
             project_form.owner= UserProfile.objects.get(user=User.objects.get(username=request.user.username))
             project_form.pub_date=datetime.datetime.now()
             project_form.save()
+            created = True
         else:
             print form.errors
     else:

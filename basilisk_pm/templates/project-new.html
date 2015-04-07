@@ -6,13 +6,15 @@
 <body>
 <div class="container voffset8">
 <h3>New Project</h3>
-
-<form action="/projects/new-project/" method="post" enctype="multipart/form-data">
+{% if created %}
+  <p>New project created!</p>
+{% else %}
+  <form action="/projects/new-project/" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ project_form.as_p }}
     <input type="submit" value="Submit" />
-</form>
-
+  </form>
+{% endif %}
 </div>
 </body>
 {% endblock %}
