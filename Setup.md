@@ -9,8 +9,9 @@ Assumes you are using Ubuntu 14.04
 5. ./manage.py migrate      
 6. ./manage.py runserver  
 
-For the admin user to be setup
-1. ./manage.py createsuperuser
-2. Login to the adminstrative panel (/admin) and add the superuser as a new UserProfile object.
+For the admin user to be setup  
+1. ./manage.py createsuperuser  
+2. Login to the adminstrative panel (/admin) and add the superuser as a new UserProfile object.  
+  
 
 
