@@ -7,37 +7,18 @@
 <table class="table table-striped voffset2">
   <thead>
     <tr>
-      <th>
-	Bug Name
-      </th>
-      <th>Details</th>
-      <th>Last Update</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Created</th>
     </tr>
   </thead>
+  {% for issue in issues %}
   <tr>
-    <td>
-      <img alt="Message" height="16" src="{{ STATIC_URL }}img/bug16.png">
-      Broken Link 
-    </td>
-    <td>Broken link found on the...</td>
-    <td>1 hour ago</td>  
+    <td>{{ issue.name }}</td>
+    <td>{{ issue.description }}</td>
+    <td>{{ issue.created_date }}</td>
   </tr>
-  <tr>
-    <td>
-      <img alt="Message" height="16" src="{{ STATIC_URL }}img/bug16.png">
-      Authentication problem? 
-    </td>
-    <td>Latest update broke authe...</td>
-    <td>3 days ago</td>
-  </tr>
-  <tr>
-    <td>
-      <img alt="Message" height="16" src="{{ STATIC_URL }}img/bug16.png">
-      Splash page
-    </td>
-    <td>Splash page is currently... </td>
-    <td>2 years ago</td>
-  </tr>
+   {% endfor %}
 </table>
 
 </div>
