@@ -10,7 +10,7 @@ Basilisk is currently using [Django](https://www.djangoproject.com/) with Postgr
 ![Alt text](/mockup/screenshots/project.png "Project")
 ![Alt text](/mockup/screenshots/project-list.png "Project List")
 
-###Goals
+###Longterm Goals
 1. Easy to use code viewer
   * Syntax Highlighting
   * Highlight and Comment on Code
