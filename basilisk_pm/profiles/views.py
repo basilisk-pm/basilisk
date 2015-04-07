@@ -7,12 +7,14 @@ from django.contrib.auth import logout
 from django.template import RequestContext, loader
 from profiles.models import UserProfile
 from django.contrib.auth.models import User
+from projects.models import Project
 
 @login_required
 def index(request):
     template = loader.get_template('profiles.html')
     context = RequestContext(request, {})
-    context['userpicture'] = UserProfile.objects.get(user=User.objects.get(username=request.user.username)).picture
+    context['userprofile'] = UserProfile.objects.get(user=User.objects.get(username=request.user.username))
+    context['projects'] = Project.objects.filter(owner=request.user.id)
     return HttpResponse(template.render(context))
 
 def register(request):

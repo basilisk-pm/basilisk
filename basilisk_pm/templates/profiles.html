@@ -6,17 +6,24 @@
   <div class="row voffset4">
     <div class="span5">
       <h3>{{ user.username }}</h3>
-      {% if userpicture %}
-         <img src="/{{ userpicture }}" alt="Uploaded profile picture" style="width:304px;height:228px">
+      {% if userprofile.userpicture %}
+         <img src="/{{ userprofile.userpicture }}" alt="Uploaded profile picture" style="width:304px;height:228px">
       {% else %}
 	 <img src="{{ STATIC_URL }}/img/default_profile.gif" alt="Profile picture" style="width:304px;height:228px">
       {% endif %}  
       <br>
+      <p><b> {{ userprofile.user.first_name }} {{ userprofile.user.last_name }} </b></p>
+      <p><b>Email:</b> {{ userprofile.user.email }}</p>
     </div>
     <div class="span4 offset2 voffset3">
       <h3>User Options</h4>
       <li><a href=" /profiles/edit">Edit profile</a></li>
       <li><a href="/projects/new-project/">New Project </a></li>
+      <br>
+      <h3>Projects</h3>
+       {% for project in projects %}
+         <li><a href="/projects/{{ project.id }}/"> {{ project }} </a> </li>
+       {% endfor %}
     </div>
   </div>
 </div>
