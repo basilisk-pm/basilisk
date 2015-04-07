@@ -2,15 +2,22 @@
 
 
 {% block container %}
-
-<div class="span4 offset8">
-<li><a href=" /profiles/edit">Edit profile</a></li>
+<div class="container">
+  <div class="row voffset4">
+    <div class="span5">
+      <h3>{{ user.username }}</h3>
+      {% if userpicture %}
+         <img src="/{{ userpicture }}" alt="Uploaded profile picture" style="width:304px;height:228px">
+      {% else %}
+	 <img src="{{ STATIC_URL }}/img/default_profile.gif" alt="Profile picture" style="width:304px;height:228px">
+      {% endif %}  
+      <br>
+    </div>
+    <div class="span4 offset2 voffset3">
+      <h3>User Options</h4>
+      <li><a href=" /profiles/edit">Edit profile</a></li>
+      <li><a href="/projects/new-project/">New Project </a></li>
+    </div>
+  </div>
 </div>
-<body>
-<div class="container voffset8">
-<h3>{{ user.username }}</h3>
-<img src="/{{ userpicture }}" alt="Uploaded profile picture" style="width:304px;height:228px">
-<a href="/projects/new-project/">New Project </a>
-</div>
-</body>
 {% endblock %}
