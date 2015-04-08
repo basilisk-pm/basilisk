@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from profiles.forms import UserForm, UserProfileForm
+from profiles.forms import UserForm, UserProfileForm, EditForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -14,7 +14,7 @@ def index(request):
     template = loader.get_template('profiles.html')
     context = RequestContext(request, {})
     context['userprofile'] = UserProfile.objects.get(user=User.objects.get(username=request.user.username))
-    context['projects'] = Project.objects.filter(owner=request.user.id)
+    context['projects'] = Project.objects.filter(owner=request.user)
     return HttpResponse(template.render(context))
 
 def register(request):
@@ -121,8 +121,25 @@ def user_logout(request):
 
     # Take the user back to the homepage.
     return HttpResponseRedirect('/')
+
 #adding stuffs for editing your profile
 def user_edit(request):
-    template = loader.get_template('profiles-edit.html')
-    context = RequestContext(request, {})
-    return HttpResponse(template.render(context))
+
+    updated = False
+    if request.method == 'POST':
+        edit_form = EditForm(data=request.POST)
+
+        if edit_form.is_valid():
+            user = User.objects.get(username=request.user.username)
+            user.save()
+
+            updated = True
+        else:
+            print edit_form.errors()
+
+    else:
+        edit_form = EditForm()
+
+    return render(request,
+            'profiles-edit.html',
+                  {'edit_form': edit_form, 'updated': updated} )

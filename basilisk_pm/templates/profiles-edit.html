@@ -6,16 +6,21 @@
 
 <div class="container voffset8">
   <h3>{{ user.username }}</h3>
-  <form id="profile_form" method="post" action=" /profiles/">
-    {% csrf_token %}
-    Name:<br>
-    <input type="text" name="name" size="50" />
-    <br />
-    email:<br>
-    <input type="email" name="email" size="50" />
-    <br />
-    <input type="submit" value="update" />
-  </form>
+
+        {% if updated %}
+        Your profile has been updated!
+        <a href="/profiles/">Return to your profile</a><br />
+        {% else %}
+        <form id="edit_form" method="post" action="/profiles/edit/"
+                enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ edit_form.as_p }}
+            <input type="submit" name="submit" value="Update" />
+        </form>
+        {% endif %}
+
+
+
 </div>
 
 {% endblock %}

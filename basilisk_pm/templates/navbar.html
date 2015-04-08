@@ -15,7 +15,9 @@
             <ul class="nav">
       	  {% if user.is_authenticated %}
               <li><a href="#">Snippets</a></li>
-              <li><a href="#about">Settings</a></li>
+	      {% if user.is_superuser %}
+                    <li><a href="/admin">Administration</a></li>
+	      {% endif %}
               <li><a href="/profiles/logout">Logout</a></li>
               {% else %}
                 <li><a href="/profiles/register">Register</a></li>
