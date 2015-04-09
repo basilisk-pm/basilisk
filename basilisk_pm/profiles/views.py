@@ -141,7 +141,8 @@ def user_edit(request):
             print edit_form.errors()
 
     else:
-        edit_form = EditForm()
+        data_dict = { 'first_name': request.user.first_name, 'last_name': request.user.last_name, 'email':request.user.email }
+        edit_form = EditForm(initial=data_dict)
 
     return render(request,
             'profiles-edit.html',
