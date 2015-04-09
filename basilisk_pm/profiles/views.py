@@ -134,11 +134,14 @@ def user_edit(request):
             user.first_name = edit_form.cleaned_data['first_name']
             user.last_name = edit_form.cleaned_data['last_name']
             user.email = edit_form.cleaned_data['email']
+            
+            password2 = edit_form.cleaned_data['password2']
+            if password2 is not None:
+                user.set_password(password2)
+            
             user.save()
-
             updated = True
-        else:
-            print edit_form.errors()
+        
 
     else:
         data_dict = { 'first_name': request.user.first_name, 'last_name': request.user.last_name, 'email':request.user.email }
