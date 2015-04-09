@@ -14,8 +14,7 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ('picture',)
 
-class EditForm(forms.ModelForm):
-
-    class Meta:
-        model = User
-        fields = ('email', 'first_name', 'last_name', )
+class EditForm(forms.Form):
+    first_name = forms.CharField(label='First Name')
+    last_name = forms.CharField(label='Last Name')
+    email = forms.EmailField(label='Email')

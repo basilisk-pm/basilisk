@@ -131,6 +131,9 @@ def user_edit(request):
 
         if edit_form.is_valid():
             user = User.objects.get(username=request.user.username)
+            user.first_name = edit_form.cleaned_data['first_name']
+            user.last_name = edit_form.cleaned_data['last_name']
+            user.email = edit_form.cleaned_data['email']
             user.save()
 
             updated = True
