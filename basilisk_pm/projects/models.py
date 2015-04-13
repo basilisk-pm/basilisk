@@ -8,7 +8,7 @@ class Project(models.Model):
     pub_date = models.DateTimeField(auto_now=True)
     #models.DateTimeField('Date Published')
     proj_desc = models.CharField(max_length=200)
-
+    git_url = models.URLField(blank=True)
 
     def __unicode__(self):
         return self.proj_name

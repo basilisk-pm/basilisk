@@ -7,6 +7,7 @@ from projects.forms import ProjectForm
 import datetime
 from profiles.models import UserProfile
 from django.contrib.auth.models import User
+from projects.forms import EditProjectForm
 
 # Create your views here.
 @login_required
@@ -38,10 +39,30 @@ def files(request,project_id):
 
 @login_required
 def settings(request,project_id):
-    template = loader.get_template('project-settings.html')
-    context = RequestContext(request, {})
-    context['project'] = get_object_or_404(Project,pk=project_id)
-    return HttpResponse(template.render(context))
+    updated = False
+    if request.method == 'POST':
+        edit_form = EditProjectForm(data=request.POST)
+
+        if edit_form.is_valid():
+            project = get_object_or_404(Project,pk=project_id)
+            
+            git_url = edit_form.cleaned_data['git_url']
+            proj_desc = edit_form.cleaned_data['proj_desc']
+
+            if git_url is not None:
+                project.git_url=git_url
+            if proj_desc is not None:
+                project.proj_desc=proj_desc
+
+            project.save()
+            updated = True        
+    else:
+        data_dict = { 'proj_desc' : get_object_or_404(Project,pk=project_id).proj_desc }
+        edit_form = EditProjectForm(initial=data_dict)
+
+    return render(request,
+            'project-settings.html',
+                  {'edit_form': edit_form, 'updated': updated, 'project': get_object_or_404(Project,pk=project_id) })
 
 def plist(request):
     template = loader.get_template('project-list.html')
