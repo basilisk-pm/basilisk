@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django.contrib.auth.decorators import login_required
 from projects.models import Project
-from projects.forms import ProjectForm
+from projects.forms import ProjectForm, ProjectFileForm
 import datetime
 from profiles.models import UserProfile
 from django.contrib.auth.models import User
@@ -30,10 +30,29 @@ def code(request,project_id):
     context['project'] = get_object_or_404(Project,pk=project_id)
     return HttpResponse(template.render(context))
 
+
 @login_required
 def files(request,project_id):
     template = loader.get_template('project-files.html')
     context = RequestContext(request, {})
+    created = False 
+    if request.method == 'POST':
+        form = ProjectFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            file_form = form.save(commit=False)
+            file_form.owner = UserProfile.objects.get(user=User.objects.get(username=request.user.username))
+            file_form.pub_date = datetime.datetime.now()
+            file_form.project = get_object_or_404(Project,pk=project_id)
+            file_form.pfile = request.FILES['pfile']
+            file_form.save()
+            created = True
+        else:
+            print form.errors
+    else:
+       form = ProjectFileForm()
+
+    context['file_form'] = form
+    context['created'] = created
     context['project'] = get_object_or_404(Project,pk=project_id)
     return HttpResponse(template.render(context))
 
@@ -44,8 +63,7 @@ def settings(request,project_id):
         edit_form = EditProjectForm(data=request.POST)
 
         if edit_form.is_valid():
-            project = get_object_or_404(Project,pk=project_id)
-            
+            project = get_object_or_404(Project,pk=project_id)            
             git_url = edit_form.cleaned_data['git_url']
             proj_desc = edit_form.cleaned_data['proj_desc']
 

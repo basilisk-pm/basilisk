@@ -33,6 +33,18 @@
 	    </td>
 	    <td>A day ago</td>
 	  </tr>
-      </table>
+</table>
+<h3>New  File</h3>
+{% if created %}
+  <p>File has been uploaded!</p>
+{% else %}
+  <form action="/projects/{{ project.id }}/files/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ file_form.as_p }}
+    <input type="submit" value="Submit" />
+  </form>
+{% endif %}
+
+
 </div>
 {% endblock %}
