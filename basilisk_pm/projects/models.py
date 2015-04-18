@@ -2,7 +2,7 @@ from django.db import models
 
 """Define the project model"""
 class Project(models.Model):
-    proj_name = models.CharField(max_length=20)
+    proj_name = models.CharField(max_length=20, unique=True)
     owner  = models.ForeignKey('profiles.UserProfile')
     pub_date = models.DateTimeField(auto_now=True)
     proj_desc = models.CharField(max_length=200)
