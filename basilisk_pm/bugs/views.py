@@ -50,3 +50,13 @@ def all_issues(request,project_id):
     context['project'] = get_object_or_404(Project,pk=project_id)
     context['issues'] = Bug.objects.filter(project=project_id)
     return HttpResponse(template.render(context))
+
+@login_required
+def view_issue(request,project_id,bug_id):
+    template = loader.get_template('bugs-view.html')
+    context = RequestContext(request, {})
+    context['project'] = get_object_or_404(Project,pk=project_id)
+    context['bug'] = get_object_or_404(Bug,pk=bug_id)
+    #data = Bug.objects.filter(project=project_id)
+    #context['issues'] = sorted(data, key=operator.attrgetter('created_date'), reverse=True)[:3]
+    return HttpResponse(template.render(context))

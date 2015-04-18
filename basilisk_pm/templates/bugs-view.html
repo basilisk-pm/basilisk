@@ -1,0 +1,14 @@
+{% extends "project-base.html" %}
+
+{% block container %}
+<div class="container voffset8">
+<h3>Project Bugs</h3>
+{% include "bug-header.html" %}
+
+<br>
+<h4>{{ bug.name }}</h4>
+<p>{{ bug.description }}</p>
+</div>
+
+</div>
+{% endblock %}

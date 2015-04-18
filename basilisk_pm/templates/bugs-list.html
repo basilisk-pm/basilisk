@@ -17,7 +17,7 @@
   </thead>
   {% for issue in issues %}
   <tr>
-    <td>{{ issue.name }}</td>
+    <td><a href="/bugs/{{ project.id}}/issues/{{ issue.id }}/">{{ issue.name }}</a></td>
     <td>{{ issue.description }}</td>
     <td>{{ issue.created_date }}</td>  
   </tr>
