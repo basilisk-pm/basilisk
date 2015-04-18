@@ -12,27 +12,15 @@
 	    <th>Last Update</th>
 	  </tr>
 	</thead>
+{% for file in file_list %}
 	  <tr>
 	    <td>
 	      <img alt="File" height="16" src="{{ STATIC_URL }}img/text16.png">
-	      FileA.txt
+	      {{ file.pfile.name }}
 	    </td>
 	    <td>A day ago</td>
 	  </tr>
-	  <tr>
-	    <td>
-	      <img alt="File" height="16" src="{{ STATIC_URL }}img/text16.png">
-	      FileB.pdf
-	    </td>
-	    <td>A day ago</td>
-	  </tr>
-	  <tr>
-	    <td>
-	      <img alt="File" height="16" src="{{ STATIC_URL }}img/text16.png">
-	      FileC.docx
-	    </td>
-	    <td>A day ago</td>
-	  </tr>
+{% endfor %}
 </table>
 <h3>New  File</h3>
 {% if created %}

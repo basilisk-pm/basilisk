@@ -2,11 +2,13 @@ from django.db import models
 
 """Define the project model"""
 class Project(models.Model):
-    proj_name = models.CharField(max_length=20, unique=True)
+    proj_name = models.CharField(max_length=20, unique=True,verbose_name='Project Name')
     owner  = models.ForeignKey('profiles.UserProfile')
     pub_date = models.DateTimeField(auto_now=True)
-    proj_desc = models.CharField(max_length=200)
+    proj_desc = models.CharField(max_length=200, verbose_name='Project Description')
     git_url = models.URLField(blank=True)
+    clone_status = models.BooleanField(default=False)
+
 
     def __unicode__(self):
         return self.proj_name

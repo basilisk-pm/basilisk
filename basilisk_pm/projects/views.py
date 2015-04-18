@@ -2,12 +2,13 @@ from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django.contrib.auth.decorators import login_required
-from projects.models import Project
+from projects.models import Project, ProjectFile
 from projects.forms import ProjectForm, ProjectFileForm
 import datetime
 from profiles.models import UserProfile
 from django.contrib.auth.models import User
 from projects.forms import EditProjectForm
+import os
 
 # Create your views here.
 @login_required
@@ -51,9 +52,17 @@ def files(request,project_id):
     else:
        form = ProjectFileForm()
 
+
+    file_list = ProjectFile.objects.filter(project=project_id)
+    for f in file_list:
+       f.pfile.name=os.path.basename(f.pfile.name)
+    
+
     context['file_form'] = form
     context['created'] = created
     context['project'] = get_object_or_404(Project,pk=project_id)
+
+    context['file_list'] = file_list
     return HttpResponse(template.render(context))
 
 @login_required
