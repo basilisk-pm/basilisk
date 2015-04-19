@@ -3,4 +3,5 @@ Coverage>=3.7.1
 django-bootstrap3==4.11.0
 django-grappelli==2.6.2
 pillow>=2.3.0
+-e git+https://github.com/rodrigoamaral/django-fullcalendar.git@f35195be4650d86f4cc0d768bbf457c1139fcffd#egg=django_fullcalendar-master
 

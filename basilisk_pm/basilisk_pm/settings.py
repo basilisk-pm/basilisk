@@ -59,6 +59,7 @@ INSTALLED_APPS = (
     'projects',
     'profiles',
     'bugs',
+    'fullcalendar',
 )
 
 MIDDLEWARE_CLASSES = (
