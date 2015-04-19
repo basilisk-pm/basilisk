@@ -8,7 +8,25 @@
 <br>
 <h4>{{ bug.name }}</h4>
 <p>{{ bug.description }}</p>
+
+{% for comment in comments %}
+  <p> {{ comment.comment }}</p>
+{% endfor %}
+
+<br>
+<p>Add a comment:</p>
+   
+   <form action="/bugs/{{ project.id }}/issues/{{ bug.id }}/" method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+   {{ bug_form.as_p }}
+   <input type="submit" value="Submit" />
+   </form>
+
+
+
 </div>
+
+
 
 </div>
 {% endblock %}
