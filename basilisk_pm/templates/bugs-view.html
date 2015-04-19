@@ -10,14 +10,14 @@
 {{ bug.created_date }} - <b> {{ bug.creator }} - Issue Created</b>
 <br>
 <em>Subject:</em> {{ bug.name }}
-<hr style="margin: 0px;">
+<hr class="bug-hr">
 <p>{{ bug.description }}</p>
 </div>
 
 {% for comment in comments %}
 <div class="bug-unit">
 {{ comment.created_date }} - <b> {{ comment.creator }} - Comment Added</b>
-<hr style="margin: 0px;">
+<hr class="bug-hr">
 {{ comment.comment }}
 </div>
 {% endfor %}
