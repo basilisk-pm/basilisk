@@ -5,6 +5,22 @@
 
         <h3>Login to Basilisk</h3>
 
+	{% if fail %}
+	<div class="alert">
+	  <button type="button" class="close" data-dismiss="alert">&times;</button>
+	  <strong>Failed Login!</strong> Invalid username/password combination provided.
+	</div>
+	{% endif %}
+
+	{% if locked %}
+	<div class="alert">
+	  <button type="button" class="close" data-dismiss="alert">&times;</button>
+	  <strong>Account Locked!</strong> Please see your administrator for more information.
+	</div>
+	{% endif %}
+
+	
+
         <form id="login_form" method="post" action="/profiles/login/">
             {% csrf_token %}
             Username: <input type="text" name="username" value="" size="50" />

@@ -69,6 +69,7 @@ def view_issue(request,project_id,bug_id):
             bug_form.bug = current_bug
             bug_form.save()
             created = True
+            form = BugCommentForm()
         else:
             print form.errors
     else:

@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'profiles',
     'bugs',
     'fullcalendar',
+    'widget_tweaks',
 )
 
 MIDDLEWARE_CLASSES = (

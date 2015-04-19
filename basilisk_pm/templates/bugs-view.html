@@ -6,19 +6,28 @@
 {% include "bug-header.html" %}
 
 <br>
-<h4>{{ bug.name }}</h4>
+<div class="bug-unit">
+{{ bug.created_date }} - <b> {{ bug.creator }} - Issue Created</b>
+<br>
+<em>Subject:</em> {{ bug.name }}
+<hr style="margin: 0px;">
 <p>{{ bug.description }}</p>
+</div>
 
 {% for comment in comments %}
-  <p> {{ comment.comment }}</p>
+<div class="bug-unit">
+{{ comment.created_date }} - <b> {{ comment.creator }} - Comment Added</b>
+<hr style="margin: 0px;">
+{{ comment.comment }}
+</div>
 {% endfor %}
 
-<br>
-<p>Add a comment:</p>
-   
+<br>   
    <form action="/bugs/{{ project.id }}/issues/{{ bug.id }}/" method="post" enctype="multipart/form-data">
    {% csrf_token %}
-   {{ bug_form.as_p }}
+   {% load widget_tweaks %}
+   <p> Add a comment: </p>
+   {{ bug_form.comment|add_class:"comment" }}
    <input type="submit" value="Submit" />
    </form>
 
