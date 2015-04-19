@@ -10,6 +10,7 @@
 		  <li><a href="/projects/{{ project.id }}/files">Files</a></li>
 		  <li><a href="/projects/{{ project.id }}/code">Code</a></li>
 		  <li><a href="/bugs/{{ project.id }}">Issues</a></li>
+		  <li><a href="/projects/{{ project.id }}/calendar">Calender</a></li>
 		  {% if request.user.is_superuser %}
 		  <li><a href="/projects/{{ project.id }}/settings">Settings</a></li>
 		  {% endif %}
