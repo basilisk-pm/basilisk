@@ -3,6 +3,8 @@
 {% block container %}
 <div class="container voffset8">
 <h3>Project Code</h3>
+
+{% if project.clone_status %}
 <table class="table table-striped">
 	<thead>
 	  <tr>
@@ -13,31 +15,7 @@
 	    <th>Commit Message </th>
 	  </tr>
 	</thead>
-	  <tr>
-	    <td>
-	      <img alt="Directory" height="16" src="{{ STATIC_URL }}img/folder16.png">
-	      Folder 
-	    </td>
-	    <td>A day ago</td>
-	    <td>Test Commit</td>
-	  </tr>
-	  <tr>
-	    <td>
-	      <img alt="File" height="16" src="{{ STATIC_URL }}img/text16.png">
-	      README.md 
-	    </td>
-	    <td>A day ago</td>
-	    <td>Test Commit</td>
-	  </tr>
-	  <tr>
-	    <td>
-	      <img alt="File" height="16" src="{{ STATIC_URL }}img/text16.png">
-	      Code.java
-	    </td>
-	    <td>A day ago</td>
-	    <td>Test Commit</td>
-	  </tr>
-      </table>
+</table>
 
       <div class="filePreviewBox">
 	<div class="filePreviewHeader">
@@ -48,5 +26,18 @@
 	  <p>Test project description</p>
 	</div>
       </div>
+{% else %}
+      {% if project.git_url %}
+        <p>This repository has not been setup yet. Repository needs to be cloned.</p>
+         <form action="/projects/{{ project.id }}/code/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+	    <input type="submit" value="Clone Repo" />
+	 </form>
+
+      {% else %}
+         <p>This repository has not been setup yet. Please setup the git url for your project. </p>
+      {% endif %}  
+{% endif %}
+
 </div>
 {% endblock %}

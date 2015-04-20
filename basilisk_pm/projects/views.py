@@ -9,6 +9,7 @@ from profiles.models import UserProfile
 from django.contrib.auth.models import User
 from projects.forms import EditProjectForm
 import os
+from git import Repo
 
 # Create your views here.
 @login_required
@@ -27,8 +28,14 @@ def detail(request,project_id):
 @login_required
 def code(request,project_id):
     template = loader.get_template('project-code.html')
+    project = get_object_or_404(Project,pk=project_id)
+    if request.method == 'POST':
+        if project.git_url and not project.clone_status:
+            repo=Repo.clone_from(project.git_url,'static/project-code/'+project.proj_name)
+            project.clone_status = True
+            project.save()
     context = RequestContext(request, {})
-    context['project'] = get_object_or_404(Project,pk=project_id)
+    context['project'] = project
     return HttpResponse(template.render(context))
 
 def calender(request,project_id):
