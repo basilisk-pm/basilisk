@@ -1,4 +1,5 @@
 db.sqlite3
 *~
 */migrations/*
-static/project-files/*
+media/project-files/*
+media/project-code/*

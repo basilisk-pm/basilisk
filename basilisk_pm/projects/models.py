@@ -15,7 +15,7 @@ class Project(models.Model):
 
 """Generate the path for the file to be uploaded to"""
 def generate_filename(instance,filename):
-    return "static/project-files/%s/%s" % (instance.project.proj_name, filename)
+    return "media/project-files/%s/%s" % (instance.project.proj_name, filename)
 
 """Model that assoctiates a file with a specific project"""
 class ProjectFile(models.Model):

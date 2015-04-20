@@ -31,7 +31,7 @@ def code(request,project_id):
     project = get_object_or_404(Project,pk=project_id)
     if request.method == 'POST':
         if project.git_url and not project.clone_status:
-            repo=Repo.clone_from(project.git_url,'static/project-code/'+project.proj_name)
+            repo=Repo.clone_from(project.git_url,'media/project-code/'+project.proj_name)
             project.clone_status = True
             project.save()
     context = RequestContext(request, {})
