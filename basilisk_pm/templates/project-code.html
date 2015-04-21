@@ -27,7 +27,9 @@
 	</div>
       </div>
 {% else %}
-      {% if project.git_url %}
+      {% if failed %}
+        <p>Repository failed to clone. Please check that the repository url is correct.</p>
+      {% elif project.git_url %}
         <p>This repository has not been setup yet. Repository needs to be cloned.</p>
          <form action="/projects/{{ project.id }}/code/" method="post" enctype="multipart/form-data">
             {% csrf_token %}
