@@ -31,7 +31,8 @@ def code(request,project_id):
     project = get_object_or_404(Project,pk=project_id)
     context = RequestContext(request, {})
     context['project'] = project
-    
+    directory='media/project-code/'+project.proj_name
+
     if request.method == 'POST':
         if project.git_url and not project.clone_status:
             try:
@@ -40,7 +41,25 @@ def code(request,project_id):
                 project.save()
             except (GitCommandError,CheckoutError) as e:
                 context['failed'] = True
-    
+    if project.clone_status:
+       directories = []
+       files = []
+       readme = False
+       if os.path.isdir(directory):
+           for f in os.listdir(directory):
+               if f != '.git':
+                   if os.path.isdir(os.path.join(directory,f)):
+                       directories.append(f)
+                   else:
+                       files.append(f)
+       context['directories']=directories
+       context['files']=files
+       if os.path.isfile(directory+"/README"):
+           #readme = open(directory+"/README.md",'r').read()
+           readme =""
+           with open(directory+"/README",'r') as f:
+               readme+=f.read()
+       context['readme']=readme
     return HttpResponse(template.render(context))
 
 def calender(request,project_id):
@@ -79,7 +98,6 @@ def files(request,project_id):
     context['file_form'] = form
     context['created'] = created
     context['project'] = get_object_or_404(Project,pk=project_id)
-
     context['file_list'] = file_list
     return HttpResponse(template.render(context))
 
