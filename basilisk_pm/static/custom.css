@@ -116,3 +116,9 @@
     margin: 0px;
     border-top:1px solid #514A4A;
 }
+
+code {
+    white-space: pre-wrap;
+    background-color: inherit;
+    font-size: 14px;
+}
