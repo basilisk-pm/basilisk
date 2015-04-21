@@ -49,6 +49,12 @@ def calender(request,project_id):
     context['project'] = get_object_or_404(Project,pk=project_id)
     return HttpResponse(template.render(context))
 
+def gantt(request,project_id):
+    template = loader.get_template('project-gantt.html')
+    context = RequestContext(request, {})
+    context['project'] = get_object_or_404(Project,pk=project_id)
+    return HttpResponse(template.render(context))
+
 
 @login_required
 def files(request,project_id):
