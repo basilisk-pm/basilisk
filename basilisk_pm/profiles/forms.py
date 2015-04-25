@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from  profiles.models import UserProfile
+from  profiles.models import UserProfile,Snippet
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
@@ -31,3 +31,8 @@ class EditForm(forms.Form):
         if password1 != password2:
             raise forms.ValidationError("Your passwords do not match")
         return password2
+
+class SnippetForm(forms.ModelForm):
+    class Meta:
+        model = Snippet
+        fields = ('title','snippet')

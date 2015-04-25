@@ -9,3 +9,11 @@ class UserProfile(models.Model):
     def __unicode__(self):
         return self.user.username
 
+class Snippet(models.Model):
+    user_profile = models.ForeignKey(UserProfile)
+    pub_date = models.DateTimeField(auto_now=True)
+    snippet = models.TextField(max_length=3000)
+    title = models.CharField(max_length=30)
+
+
+

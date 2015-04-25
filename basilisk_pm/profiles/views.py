@@ -1,13 +1,14 @@
 from django.shortcuts import render
-from profiles.forms import UserForm, UserProfileForm, EditForm
+from profiles.forms import UserForm, UserProfileForm, EditForm, SnippetForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.template import RequestContext, loader
-from profiles.models import UserProfile
+from profiles.models import UserProfile,Snippet
 from django.contrib.auth.models import User
 from projects.models import Project
+import datetime
 
 @login_required
 def index(request):
@@ -154,3 +155,23 @@ def user_edit(request):
     return render(request,
             'profiles-edit.html',
                   {'edit_form': edit_form, 'updated': updated} )
+
+
+def snippets(request):
+    up = UserProfile.objects.get(user=User.objects.get(username=request.user.username))
+    template = loader.get_template('profiles-snippets.html')
+    context = RequestContext(request, {})
+    if request.method == 'POST':
+        form = SnippetForm(request.POST)
+        if form.is_valid():
+            snippet_form=form.save(commit=False)
+            snippet_form.user_profile = up
+            snippet_form.pub_date=datetime.datetime.now()
+            snippet_form.save()
+            form = SnippetForm()
+    else: 
+        form = SnippetForm()
+    context['form'] = form
+    context['snippets'] =  Snippet.objects.filter(user_profile=up)
+    return HttpResponse(template.render(context))
+

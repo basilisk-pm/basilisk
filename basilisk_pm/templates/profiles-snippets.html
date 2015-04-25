@@ -1,0 +1,30 @@
+{% extends "profiles-base.html" %}
+
+
+{% block container %}
+
+
+<div class="container voffset4">
+  <h3>{{ user.username }} - Snippets</h3>
+
+  {% for s in snippets %}
+    <b>{{ s.title }} </b> - <em>{{ s.pub_date }}</em>
+    <p>{{ s.snippet }} </p>
+  {% endfor %}
+    
+
+    <br>
+    <h3>Add new snippet</h3>
+  <form id="form" method="post" action="/profiles/snippets/"
+        enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="submit" value="Add Snippet" />
+  </form>
+        
+
+
+
+</div>
+
+{% endblock %}
