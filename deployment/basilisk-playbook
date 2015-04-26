@@ -1,0 +1,20 @@
+- host: yoursever.com
+  sudo: yes
+  
+  tasks:
+  - name: Install deps
+    apt: name=python-dev,python-pip
+
+  - name: Install deployment python libraries
+    pip: name=gunicorn,supervisor
+
+  - name: Create webapp group
+    group: name=webapp
+   
+  - name: Create webapp folder
+    command: mkdir -p /srv/webapps/basilisk
+
+  - name: Create django user
+    user: name=django home=/srv/webapps/basilisk groups=webapps
+
+  
